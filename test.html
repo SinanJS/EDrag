@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>拖放实验室-1</title>
+    <script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/EDrag.js"></script>
+    <link rel="stylesheet" href="css/edrag.css">
+    <style>
+        body,html{
+            margin: 0px;
+            padding: 0px;
+            height:100%;
+        }
+        .clear-fix:after{
+            content: ".";
+            display: block;
+            visibility: hidden;
+            height: 0px;
+            clear: both;
+        }
+        .container{
+            height: 100%    ;
+        }
+        .left-bar{
+            height:100%;
+            background-color: #9966FF;
+            width: 15%;
+            float: left;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-bar">
+            <ul>
+                <li id="tpl-1" class="no-select">模板一</li>
+                <li id="tpl-2" class="no-select">模板二</li>
+                <li id="tpl-3" class="no-select">模板3</li>
+            </ul>
+        </div>
+        <div class="content-area">
+
+        </div>
+    </div>
+</body>
+<script id="tpl-html-1" type="text/html">
+    <div class="box">
+        <div class="head">标题</div>
+        <div class="body">
+            华丽丽的盒子Body不要问我为啥要叫EDrag这个名字因为我乐意
+        </div>
+    </div>
+</script>
+<script>
+    $(function(){
+        var template_1 = new EDrag({
+            bind:[{
+                el:"#tpl-1",
+                template:"<h1>模板一标题<h1/>",
+                templateId:"t-0"
+            },{
+                el:"#tpl-2",
+                template:"<h1>模板二标题<h1/>",
+                templateId:"t-1"
+            },{
+                el:"#tpl-3",
+                template:$("#tpl-html-1").html(),
+                templateId:"t-2"
+            }],
+            showMousePs:true,
+            container:".content-area"
+        });
+
+    })
+</script>
+</html>
