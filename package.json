@@ -1,0 +1,35 @@
+{
+  "name": "edrag",
+  "version": "0.1.1",
+  "description": "这��一个可以对元素进行拖拽����布局的插JavaScript组件\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[3~\u001b[3~\u001b[3~",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SinanJS/EDrag.git"
+  },
+  "keywords": [
+    "drag",
+    "拖拽",
+    "js"
+  ],
+  "author": "SinanTitan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SinanJS/EDrag/issues"
+  },
+  "homepage": "https://github.com/SinanJS/EDrag#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cmd": "^0.4.6",
+    "gulp-rev": "^7.1.2",
+    "gulp-seajs-combo": "^1.2.3",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-watch": "^4.3.9",
+    "modify-filename": "^1.1.0",
+    "pump": "^1.0.1"
+  }
+}

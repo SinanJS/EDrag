@@ -3,7 +3,7 @@
 * (c) biyao.com
 * created by zpc on 2016-08-01
 * */
-
+'use strict';
 (function(global){
     window.qs = function(selector){
         return document.querySelector(selector);
@@ -282,4 +282,8 @@
     }else {
         global.EDrag = EDrag;
     }
+    var sayName =function(){
+        console.log("zpc");
+    };
+    //sayName();
 })(this);
