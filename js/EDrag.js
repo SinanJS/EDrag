@@ -1,9 +1,36 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @SinanJS
+
+1
+0
+
+    0
+
+SinanJS/EDrag
+Code
+Issues 0
+Pull requests 0
+Wiki
+Pulse
+Graphs
+Settings
+EDrag/js/EDrag.js
+1e4e0ad 10 days ago
+@SinanJS SinanJS 首次提交
+285 lines (272 sloc) 9.89 KB
 /*
 * EDrag v 0.1.1 Bate
 * (c) biyao.com
 * created by zpc on 2016-08-01
 * */
-'use strict';
+
 (function(global){
     window.qs = function(selector){
         return document.querySelector(selector);
@@ -282,8 +309,9 @@
     }else {
         global.EDrag = EDrag;
     }
-    var sayName =function(){
-        console.log("zpc");
-    };
-    //sayName();
 })(this);
+
+    Contact GitHub API Training Shop Blog About 
+
+    © 2016 GitHub, Inc. Terms Privacy Security Status Help 
+
