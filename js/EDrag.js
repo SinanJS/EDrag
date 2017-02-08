@@ -109,7 +109,6 @@
                 }
             });
         },
-
     };
 
     var EDrag = function(opt){
@@ -280,6 +279,12 @@
     if (typeof define === "function" && (define.amd || define.cmd)) {
         define("EDrag", ['jQuery'], function () { return EDrag; });
     }else {
-        global.EDrag = EDrag;
+        window.EDrag = EDrag;
+    }
+
+    if (typeof define === "function" && (define.amd || define.cmd)) {
+        define("BaseDrag", ['jQuery'], function () { return BaseDrag; });
+    }else {
+        window.BaseDrag = BaseDrag;
     }
 })(this);
