@@ -99,8 +99,8 @@
                 }
             }
         },
-        // 判断当前选中目标元素是否可以被拖动
-        isAllowDrag: function (target) {
+        // 判断当前选中目标元素是否可以被拖动,并重新确定拖动目标
+        confirmTarget: function (target) {
             var $target = $(target);
             if($target.attr('drag')){
                 return target;
@@ -116,7 +116,7 @@
         selectDOM: function (event, _this) {
             return (function () {
                 //  if((event.target.className !== this.$el[0].className) && (event.target.parentNode.className === this.$el[0].className)) {
-                this.target = this.isAllowDrag(event.target);
+                this.target = this.confirmTarget(event.target);
                 if(this.target){
                     $(this.target).addClass('draging');
                 }
