@@ -19,12 +19,8 @@
     };
     BaseDrag.prototype = {
         init: function (opt) {
-            var _this = this;
             this.el = opt.el;
             this.$el = $(opt.el);
-            this._el = document.querySelectorAll(opt.el);
-            this.childrenList = new Set();
-            var elType = opt.el.toString().substr(0, 1);
             if (!opt.moveOnly) {
                 this.drag(this.$el);
             } else {
@@ -40,7 +36,7 @@
              for(var i=0;i<this._el[0].children.length;i++){
              this.childrenList.add(this._el[0].children[i].className)
              }*/
-
+            //事件委托
             $el.on("mousedown", function (event) {
                 _this.selectDOM(event);
             });
@@ -86,9 +82,7 @@
             });
 
         },
-        $error: function (msg) {
-            console.log(msg);
-        },
+
         //遍历子元素
         mapDOM: function ($el) {
             for (var i = 0; i < $el.length; i++) {
@@ -119,6 +113,8 @@
                 this.target = this.confirmTarget(event.target);
                 if(this.target){
                     $(this.target).addClass('draging');
+                }else {
+                    return;
                 }
                 this.isDown = true;
                 var nowPs = {
