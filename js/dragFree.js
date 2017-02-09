@@ -30,35 +30,15 @@
             }
             this.$el.css("cursor", "move");
         },
+        //执行函数
         drag: function ($el) {
             var _this = this;
 
             $el.on("mousedown", function (event) {
-                $(event.target).addClass('draging');
-                _this.isDown = true;
-                var nowPs = {
-                    x: $('.draging')[0].offsetLeft,
-                    y: $('.draging')[0].offsetTop
-                };
-                var offsetX = event.clientX - nowPs.x;
-                var offsetY = event.clientY - nowPs.y;
-                _this.watchMousePs(function (mousePs) {
-                    var elPs = {
-                        x: mousePs.x - offsetX,
-                        y: mousePs.y - offsetY
-                    };
-                    $('.draging').css({
-                        'position': "absolute",
-                        'top': elPs.y,
-                        'left': elPs.x
-                    });
-
-                });
+                _this.selectDOM(event);
             });
             $el.on('mouseup', function (event) {
-                _this.isDown = false;
-                $(".dr-tpl").remove();
-                $(event.target).removeClass('draging');
+                _this.freeDOM(event);
             });
             if (!!_this.opt.callback) {
                 _this.opt.callback();
@@ -102,7 +82,35 @@
         $error: function (msg) {
             console.log(msg);
         },
-        //鼠标位置
+
+        //动作分解：选中
+        selectDOM: function (event, _this) {
+            return (function () {
+                $(event.target).addClass('draging');
+
+                this.isDown = true;
+                var nowPs = {
+                    x: $('.draging')[0].offsetLeft,
+                    y: $('.draging')[0].offsetTop
+                };
+                var offsetX = event.clientX - nowPs.x;
+                var offsetY = event.clientY - nowPs.y;
+                this.watchMousePs(function (mousePs) {
+                    var elPs = {
+                        x: mousePs.x - offsetX,
+                        y: mousePs.y - offsetY
+                    };
+                    $('.draging').css({
+                        'position': "absolute",
+                        'top': elPs.y,
+                        'left': elPs.x
+                    });
+
+                });
+            }).call(_this || this);
+
+        },
+        //动作分解：鼠标移动，拖动
         watchMousePs: function (callback) {
             var _this = this;
             document.addEventListener('mousemove', function (event) {
@@ -115,6 +123,14 @@
                 }
             });
         },
+        //动作分解：鼠标松开，释放
+        freeDOM: function (event, _this) {
+            return (function () {
+                this.isDown = false;
+                $(".dr-tpl").remove();
+                $(event.target).removeClass('draging');
+            }).call(_this || this);
+        }
     };
     if (typeof define === "function" && (define.amd || define.cmd)) {
         define("DragFree", ['jQuery'], function () {
