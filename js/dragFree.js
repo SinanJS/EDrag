@@ -2,9 +2,9 @@
  * Created by Administrator on 2017/2/8.
  */
 /*
- * EDrag v 0.1.1 Bate
+ * EDrag v 0.1.2 Bate
  * (c) biyao.com
- * created by zpc on 2016-08-01
+ * created by zpc on 2017-02-09
  * */
 
 (function (global) {
@@ -95,19 +95,19 @@
                 var father = $el[i];
                 for (var j = 0; j < father.children.length; j++) {
                     var child = father.children[j];
-                    $(child).attr("drag", true);
+                    child.setAttribute("dragfree", true);
                 }
             }
         },
         // 判断当前选中目标元素是否可以被拖动,并重新确定拖动目标
         confirmTarget: function (target) {
             var $target = $(target);
-            if($target.attr('drag')){
+            if($target.attr('dragfree') !== undefined){
                 return target;
-            }else if($target.find('[drag="true"]').length === 1){
-                return $target.find('[drag="true"]')[0];
-            }else if($target.parent('[drag="true"]').length === 1){
-                return $target.parent('[drag="true"]')[0];
+            }else if($target.find('[dragfree="true"]').length === 1){
+                return $target.find('[dragfree="true"]')[0];
+            }else if($target.parent('[dragfree="true"]').length === 1){
+                return $target.parent('[dragfree="true"]')[0];
             }else {
                 return false;
             }
